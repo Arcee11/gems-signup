@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>GEMS QR Code Generator — All 40 Qualities</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #111; color: #eee; padding: 40px; }
+    h1 { color: #C9A84C; margin-bottom: 8px; }
+    p { color: #888; margin-bottom: 32px; }
+    .controls { margin-bottom: 32px; display: flex; gap: 16px; align-items: center; }
+    button {
+      background: #C9A84C; color: #111; border: none; padding: 12px 24px;
+      border-radius: 6px; cursor: pointer; font-size: 0.9rem; font-weight: bold;
+    }
+    button:hover { background: #E8D08A; }
+    .btn-outline {
+      background: transparent; border: 1px solid #C9A84C; color: #C9A84C;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    .qr-item {
+      background: #1A1A1A;
+      border: 1px solid #2A2A2A;
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+    }
+    .qr-item canvas, .qr-item img { display: block; margin: 0 auto 12px; }
+    .qr-num { font-size: 0.7rem; color: #555; margin-bottom: 4px; }
+    .qr-title { font-size: 0.9rem; color: #eee; font-weight: bold; margin-bottom: 4px; }
+    .qr-url { font-size: 0.65rem; color: #555; word-break: break-all; }
+    .qr-download {
+      margin-top: 10px; font-size: 0.75rem; color: #C9A84C;
+      cursor: pointer; text-decoration: underline;
+    }
+    .print-area { display: none; }
+    @media print {
+      body { background: white; color: black; }
+      .controls { display: none; }
+      .grid { grid-template-columns: repeat(5, 1fr); }
+      .qr-item { border: 1px solid #ccc; background: white; break-inside: avoid; }
+      .qr-title { color: black; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>GEMS — 40 Quality QR Codes</h1>
+  <p>All 40 QR codes for the book. Each encodes a custom <code>gems://</code> URI plus a fallback URL. Click any QR to download as PNG. Use Print to export a sheet for the printer.</p>
+
+  <div class="controls">
+    <button onclick="window.print()">🖨 Print All</button>
+    <button class="btn-outline" onclick="downloadAll()">⬇ Download All PNGs</button>
+  </div>
+
+  <div class="grid" id="grid"></div>
+
+  <!-- QRCode.js from cdnjs -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+  <script>
+    const BASE_GITHUB = "https://github.com/Arcee11/gems-core/tree/main/qualities";
+    const BASE_FALLBACK = "https://subscribe.giveenergymakesmiles.com";
+
+    const QUALITIES = [
+      { id: "resilient",      page: 1,  title: "Resilient" },
+      { id: "confident",      page: 2,  title: "Confident" },
+      { id: "empowered",      page: 3,  title: "Empowered" },
+      { id: "purpose-driven", page: 4,  title: "Purpose-Driven" },
+      { id: "peaceful",       page: 5,  title: "Peaceful" },
+      { id: "ambitious",      page: 6,  title: "Ambitious" },
+      { id: "authentic",      page: 7,  title: "Authentic" },
+      { id: "grounded",       page: 8,  title: "Grounded" },
+      { id: "mindful",        page: 9,  title: "Mindful" },
+      { id: "courageous",     page: 10, title: "Courageous" },
+      { id: "grateful",       page: 11, title: "Grateful" },
+      { id: "disciplined",    page: 12, title: "Disciplined" },
+      { id: "creative",       page: 13, title: "Creative" },
+      { id: "focused",        page: 14, title: "Focused" },
+      { id: "joyful",         page: 15, title: "Joyful" },
+      { id: "connected",      page: 16, title: "Connected" },
+      { id: "self-aware",     page: 17, title: "Self-Aware" },
+      { id: "determined",     page: 18, title: "Determined" },
+      { id: "generous",       page: 19, title: "Generous" },
+      { id: "humble",         page: 20, title: "Humble" },
+      { id: "hopeful",        page: 21, title: "Hopeful" },
+      { id: "adaptable",      page: 22, title: "Adaptable" },
+      { id: "loving",         page: 23, title: "Loving" },
+      { id: "energized",      page: 24, title: "Energized" },
+      { id: "patient",        page: 25, title: "Patient" },
+      { id: "honest",         page: 26, title: "Honest" },
+      { id: "worthy",         page: 27, title: "Worthy" },
+      { id: "present",        page: 28, title: "Present" },
+      { id: "accountable",    page: 29, title: "Accountable" },
+      { id: "wise",           page: 30, title: "Wise" },
+      { id: "curious",        page: 31, title: "Curious" },
+      { id: "forgiving",      page: 32, title: "Forgiving" },
+      { id: "expressive",     page: 33, title: "Expressive" },
+      { id: "still",          page: 34, title: "Still" },
+      { id: "trusting",       page: 35, title: "Trusting" },
+      { id: "growing",        page: 36, title: "Growing" },
+      { id: "committed",      page: 37, title: "Committed" },
+      { id: "open",           page: 38, title: "Open" },
+      { id: "free",           page: 39, title: "Free" },
+      { id: "legendary",      page: 40, title: "Legendary" }
+    ];
+
+    const canvasMap = {};
+
+    function makeUrl(quality) {
+      // gems:// custom protocol with URL fallback after pipe
+      // Format: gems://quality/[id]|https://github.com/Arcee11/gems-core/tree/main/qualities/[id]
+      return `${BASE_GITHUB}/${quality.id}`;
+    }
+
+    const grid = document.getElementById('grid');
+
+    QUALITIES.forEach(q => {
+      const item = document.createElement('div');
+      item.className = 'qr-item';
+      item.id = `qr-item-${q.id}`;
+
+      const num = document.createElement('div');
+      num.className = 'qr-num';
+      num.textContent = `Page ${q.page} of 40`;
+
+      const title = document.createElement('div');
+      title.className = 'qr-title';
+      title.textContent = q.title;
+
+      const qrContainer = document.createElement('div');
+      qrContainer.id = `qr-${q.id}`;
+
+      const url = document.createElement('div');
+      url.className = 'qr-url';
+      url.textContent = `gems://quality/${q.id}`;
+
+      const dl = document.createElement('div');
+      dl.className = 'qr-download';
+      dl.textContent = '⬇ Download PNG';
+      dl.onclick = () => downloadQR(q.id, q.title);
+
+      item.appendChild(num);
+      item.appendChild(qrContainer);
+      item.appendChild(title);
+      item.appendChild(url);
+      item.appendChild(dl);
+      grid.appendChild(item);
+
+      // Generate QR code
+      const qrUrl = makeUrl(q);
+      const qr = new QRCode(qrContainer, {
+        text: qrUrl,
+        width: 160,
+        height: 160,
+        colorDark: "#000000",
+        colorLight: "#ffffff",
+        correctLevel: QRCode.CorrectLevel.H
+      });
+
+      // Store canvas reference
+      setTimeout(() => {
+        const canvas = qrContainer.querySelector('canvas');
+        if (canvas) canvasMap[q.id] = { canvas, title: q.title };
+      }, 200);
+    });
+
+    function downloadQR(id, title) {
+      setTimeout(() => {
+        const container = document.getElementById(`qr-${id}`);
+        const canvas = container.querySelector('canvas');
+        if (!canvas) { alert('QR not ready yet — try again in a moment.'); return; }
+
+        // Create a larger canvas with label
+        const output = document.createElement('canvas');
+        const padding = 20;
+        const labelHeight = 50;
+        output.width = canvas.width + padding * 2;
+        output.height = canvas.height + padding * 2 + labelHeight;
+        const ctx = output.getContext('2d');
+
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(0, 0, output.width, output.height);
+        ctx.drawImage(canvas, padding, padding);
+
+        ctx.fillStyle = '#000000';
+        ctx.font = 'bold 16px Arial';
+        ctx.textAlign = 'center';
+        ctx.fillText(title, output.width / 2, canvas.height + padding + 20);
+        ctx.font = '11px Arial';
+        ctx.fillStyle = '#666666';
+        ctx.fillText(`gems://quality/${id}`, output.width / 2, canvas.height + padding + 38);
+
+        const link = document.createElement('a');
+        link.download = `GEMS-QR-${id}.png`;
+        link.href = output.toDataURL('image/png');
+        link.click();
+      }, 300);
+    }
+
+    function downloadAll() {
+      let delay = 0;
+      QUALITIES.forEach(q => {
+        setTimeout(() => downloadQR(q.id, q.title), delay);
+        delay += 200;
+      });
+    }
+  </script>
+</body>
+</html>
