@@ -613,8 +613,117 @@
       margin-bottom: 16px;
     }
 
+    /* PERSONAL AGENT SECTION */
+    .agent-section {
+      padding: 100px 40px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .agent-section-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .agent-section-header blockquote {
+      font-size: clamp(1.3rem, 3vw, 1.9rem);
+      font-weight: normal;
+      font-style: italic;
+      color: var(--text);
+      line-height: 1.5;
+      margin-bottom: 24px;
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .agent-section-header p {
+      color: var(--text-muted);
+      font-size: 1rem;
+      max-width: 580px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    .agent-compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    @media (max-width: 700px) {
+      .agent-compare { grid-template-columns: 1fr; }
+    }
+
+    .agent-col {
+      border: 1px solid var(--dark-border);
+      border-radius: 12px;
+      padding: 36px 32px;
+      background: var(--dark-card);
+    }
+
+    .agent-col.with-gems {
+      border-color: var(--gold);
+      background: #1C1812;
+    }
+
+    .agent-col-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      font-family: sans-serif;
+    }
+
+    .agent-col.without-gems .agent-col-label { color: var(--text-muted); }
+    .agent-col.with-gems .agent-col-label { color: var(--gold); }
+
+    .agent-col ul {
+      list-style: none;
+    }
+
+    .agent-col ul li {
+      padding: 10px 0;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      border-bottom: 1px solid var(--dark-border);
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .agent-col ul li:last-child { border-bottom: none; }
+
+    .agent-col.without-gems ul li { color: var(--text-muted); }
+    .agent-col.with-gems ul li { color: var(--text); }
+
+    .agent-col ul li::before {
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .agent-col.without-gems ul li::before { content: '—'; color: #444; }
+    .agent-col.with-gems ul li::before { content: '✦'; color: var(--gold); font-size: 0.7rem; margin-top: 4px; }
+
+    .agent-closing {
+      text-align: center;
+      margin-top: 56px;
+      padding-top: 56px;
+      border-top: 1px solid var(--dark-border);
+    }
+
+    .agent-closing p {
+      color: var(--text-muted);
+      font-size: 1rem;
+      max-width: 560px;
+      margin: 0 auto 32px;
+      line-height: 1.9;
+    }
+
     /* RESPONSIVE */
     @media (max-width: 600px) {
+      .agent-section { padding: 60px 20px; }
+
       nav { padding: 16px 20px; }
       .hero { padding: 60px 20px 40px; }
       .trial-form { flex-direction: column; }
@@ -634,10 +743,49 @@
 
   <!-- HERO -->
   <section class="hero">
-    <p class="hero-eyebrow">Give Energy Make Smiles &bull; Personal Growth Program</p>
-    <h1>Personal growth,<br>running as a <em>program</em>.</h1>
-    <p>GEMS is a complete coaching system your AI agent runs. 40 life qualities. Daily challenges. Real music. A game that makes growth feel like an adventure. Subscribe and begin — no other tools required.</p>
-    <a href="#signup" class="btn btn-gold" style="display:inline-block; width:auto; padding:16px 40px;">Start the Program</a>
+    <p class="hero-eyebrow">Give Energy Make Smiles &bull; For You and Your Personal Agent</p>
+    <h1>Your personal agent should know<br>who you're trying to <em>become</em>.</h1>
+    <p>GEMS is the growth framework you give your personal AI agent. It teaches your agent your values, your emotional patterns, and how to coach you — not just answer you. Whether you're just starting with AI or already in a daily relationship with your agent, this is the foundation that makes it real.</p>
+    <a href="#signup" class="btn btn-gold" style="display:inline-block; width:auto; padding:16px 40px;">Give Your Agent This</a>
+  </section>
+
+  <!-- PERSONAL AGENT SECTION -->
+  <section class="agent-section">
+    <div class="agent-section-header">
+      <p class="section-label">Why This Matters Now</p>
+      <blockquote>"An undirected agent just amplifies whoever you already are."</blockquote>
+      <p>Your personal agent is powerful. But without a growth framework, it responds to your moods, enables your patterns, and gives you what feels good instead of what moves you forward. GEMS gives your agent direction — so it works <em>for</em> your growth, not just for your comfort.</p>
+    </div>
+
+    <div class="agent-compare">
+      <div class="agent-col without-gems">
+        <p class="agent-col-label">Without GEMS</p>
+        <ul>
+          <li>Responds to what you say, not who you're becoming</li>
+          <li>No emotional framework — reacts to your surface state</li>
+          <li>Generic advice based on averages, not your specific qualities</li>
+          <li>Enables avoidance and comfort-seeking without realizing it</li>
+          <li>Powerful, but pointed in no particular direction</li>
+          <li>Knows a lot. Knows nothing about your growth.</li>
+        </ul>
+      </div>
+      <div class="agent-col with-gems">
+        <p class="agent-col-label">With GEMS</p>
+        <ul>
+          <li>Understands which qualities you're actively building</li>
+          <li>Emotionally aware — reads your state and coaches accordingly</li>
+          <li>Challenges calibrated to where you actually are</li>
+          <li>Guides you toward what helps, even when it's uncomfortable</li>
+          <li>Has a compass — your values, your growth, your direction</li>
+          <li>Knows you. Knows what you're working toward.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="agent-closing">
+      <p>Personal agents are becoming part of everyday life — the way phones did. The people who build that relationship on something real, something intentional, right now — those are the people whose agents will actually help them grow. This is how you build that foundation.</p>
+      <a href="#signup" class="btn btn-gold" style="display:inline-block; width:auto; padding:16px 40px;">Build Your Foundation</a>
+    </div>
   </section>
 
   <!-- WHAT IT IS -->
@@ -660,8 +808,8 @@
         <p>Quests, Compass card draws, XP, coins, and 10 levels from Seeker to Legend. Personal growth as a story you're living — with real milestones and real rewards.</p>
       </div>
       <div class="what-item">
-        <h3>Your Agent Runs It</h3>
-        <p>Claude, ChatGPT, Gemini — any AI agent. No apps to download. No dashboards to visit. Your agent reads the GEMS system and does everything: coaching, music, tracking.</p>
+        <h3>Built for Personal Agents</h3>
+        <p>Claude, ChatGPT, Gemini, any agent — including the personal AI companions coming in the near future. GEMS speaks every agent's language. Your program travels with you as the technology evolves.</p>
       </div>
       <div class="what-item">
         <h3>Built to Last</h3>
@@ -837,10 +985,6 @@
         <div class="form-group">
           <label class="form-label" for="email">Email Address</label>
           <input type="email" class="form-input" id="email" placeholder="your@email.com" required />
-        </div>
-        <div class="form-group">
-          <label class="form-label" for="github">Access Username <span style="color:var(--text-muted); font-size:0.75em;">(included in your setup email)</span></label>
-          <input type="text" class="form-input" id="github" placeholder="choose a username" required />
         </div>
         <div class="form-group">
           <label class="form-label" for="tier-select">Program Tier</label>
