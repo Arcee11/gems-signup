@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GEMS — Give Energy Make Smiles | AI-Powered Personal Growth</title>
-  <meta name="description" content="A subscription system for your personal AI agent. 40 life qualities. Guided challenges. Real growth. By Give Energy Make Smiles." />
+  <title>GEMS — Give Energy Make Smiles | Personal Growth Program</title>
+  <meta name="description" content="GEMS is a personal growth program your AI agent runs. 40 life qualities. Daily challenges. Real music. A game that makes growth stick. By Give Energy Make Smiles." />
   <style>
     :root {
       --gold: #C9A84C;
@@ -143,11 +143,95 @@
       margin: 0 auto;
     }
 
+    /* EXPANSIONS */
+    .expansions {
+      padding: 100px 40px;
+      max-width: 1100px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .expansions-header {
+      margin-bottom: 60px;
+    }
+
+    .expansion-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      text-align: left;
+    }
+
+    .expansion-card {
+      border: 1px solid var(--dark-border);
+      border-radius: 12px;
+      padding: 36px 32px;
+      background: var(--dark-card);
+      position: relative;
+    }
+
+    .expansion-card.highlight {
+      border-color: var(--gold);
+    }
+
+    .expansion-badge {
+      display: inline-block;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 3px 12px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      font-family: sans-serif;
+      font-weight: bold;
+    }
+
+    .badge-available {
+      background: rgba(201, 168, 76, 0.15);
+      color: var(--gold);
+      border: 1px solid rgba(201, 168, 76, 0.3);
+    }
+
+    .badge-pro {
+      background: rgba(74, 122, 155, 0.15);
+      color: #7AADCC;
+      border: 1px solid rgba(74, 122, 155, 0.3);
+    }
+
+    .badge-soon {
+      background: rgba(255,255,255,0.05);
+      color: var(--text-muted);
+      border: 1px solid var(--dark-border);
+    }
+
+    .expansion-card h3 {
+      font-size: 1.2rem;
+      font-weight: normal;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    .expansion-card p {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      line-height: 1.75;
+    }
+
+    .expansion-card .expansion-detail {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--dark-border);
+      font-size: 0.82rem;
+      color: #666;
+      line-height: 1.6;
+    }
+
     /* TIERS */
     .tiers {
       padding: 100px 40px;
       max-width: 1100px;
       margin: 0 auto;
+      background: var(--dark);
     }
 
     .tiers-header {
@@ -534,7 +618,7 @@
       nav { padding: 16px 20px; }
       .hero { padding: 60px 20px 40px; }
       .trial-form { flex-direction: column; }
-      .tiers { padding: 60px 20px; }
+      .tiers, .expansions { padding: 60px 20px; }
       .trial-section, .how, .signup-section { padding: 60px 20px; }
       .post-signup { padding: 40px 20px; }
     }
@@ -550,52 +634,87 @@
 
   <!-- HERO -->
   <section class="hero">
-    <p class="hero-eyebrow">Give Energy Make Smiles &bull; Personal Growth System</p>
-    <h1>Your AI agent,<br>trained for your <em>growth</em>.</h1>
-    <p>GEMS gives your personal AI agent everything it needs to coach you through 40 life qualities — with challenges, music, guidance, and a game that makes growth feel like an adventure.</p>
-    <a href="#signup" class="btn btn-gold" style="display:inline-block; width:auto; padding:16px 40px;">Begin Your Journey</a>
+    <p class="hero-eyebrow">Give Energy Make Smiles &bull; Personal Growth Program</p>
+    <h1>Personal growth,<br>running as a <em>program</em>.</h1>
+    <p>GEMS is a complete coaching system your AI agent runs. 40 life qualities. Daily challenges. Real music. A game that makes growth feel like an adventure. Subscribe and begin — no other tools required.</p>
+    <a href="#signup" class="btn btn-gold" style="display:inline-block; width:auto; padding:16px 40px;">Start the Program</a>
   </section>
 
   <!-- WHAT IT IS -->
   <section class="what">
-    <p class="section-label">What GEMS Is</p>
-    <h2 class="section-title">A subscription for your agent.</h2>
-    <p class="section-sub">Not an app. Not a website. A structured knowledge system your AI agent reads directly — and uses to coach you, stream music, track your progress, and push you forward.</p>
+    <p class="section-label">The Program</p>
+    <h2 class="section-title">A complete personal growth system.</h2>
+    <p class="section-sub">Not an app. Not a website. A structured coaching program your AI agent reads and runs — on any device, through any agent, for the rest of your life.</p>
 
     <div class="what-grid">
       <div class="what-item">
-        <h3>40 Life Qualities</h3>
-        <p>From resilience to purpose, from peace to ambition — each quality has its own structured challenge, curated music, and coaching curriculum.</p>
+        <h3>The Curriculum</h3>
+        <p>40 life qualities — from resilience to purpose, from peace to ambition. Each one is a full coaching module with challenges, context, and a clear path forward.</p>
       </div>
       <div class="what-item">
-        <h3>Agent-First Design</h3>
-        <p>Your AI agent reads the GEMS system directly. No apps to download. No websites to visit. The agent does everything — coaching, music, tracking.</p>
-      </div>
-      <div class="what-item">
-        <h3>Sound Sanctuary</h3>
-        <p>Curated music streamed by your agent during coaching sessions. Chosen for each quality, each day, each moment in your journey.</p>
+        <h3>The Sound Sanctuary</h3>
+        <p>Music your agent plays during coaching sessions. Matched to each quality, each day, each moment in your journey. The emotional layer of the program.</p>
       </div>
       <div class="what-item">
         <h3>The Voyager Game</h3>
-        <p>XP, coins, levels, quests, and Compass Deck card spreads. Personal growth as an adventure — with real milestones and real rewards.</p>
+        <p>Quests, Compass card draws, XP, coins, and 10 levels from Seeker to Legend. Personal growth as a story you're living — with real milestones and real rewards.</p>
       </div>
       <div class="what-item">
-        <h3>The Book</h3>
-        <p><em>Where to Start and How to Get There</em> — each page dedicated to one quality, with a QR code that points your agent directly to that quality's content.</p>
+        <h3>Your Agent Runs It</h3>
+        <p>Claude, ChatGPT, Gemini — any AI agent. No apps to download. No dashboards to visit. Your agent reads the GEMS system and does everything: coaching, music, tracking.</p>
       </div>
       <div class="what-item">
-        <h3>Robot Ready</h3>
-        <p>Built in a format every current and future AI agent can read — including humanoid robots. GEMS grows with the technology.</p>
+        <h3>Built to Last</h3>
+        <p>Structured in a format every current and future AI agent can read — including humanoid robots. As the technology evolves, GEMS grows with it.</p>
+      </div>
+      <div class="what-item">
+        <h3>Expand Anytime</h3>
+        <p>Books, card decks, tools, and more plug directly into your GEMS program. Each one gives your agent more to work with. The program gets richer as your toolkit grows.</p>
       </div>
     </div>
   </section>
 
+  <!-- EXPANSIONS -->
+  <section class="expansions">
+    <div class="expansions-header">
+      <p class="section-label">The Ecosystem</p>
+      <h2 class="section-title">Tools that plug in and go deeper.</h2>
+      <p class="section-sub">GEMS is complete on its own. Each expansion gives your agent a new dimension to work with — more ways to coach, more ways to engage, more ways to grow.</p>
+    </div>
+
+    <div class="expansion-cards">
+
+      <div class="expansion-card highlight">
+        <span class="expansion-badge badge-available">Available Now</span>
+        <h3>The Book</h3>
+        <p><em>Where to Start and How to Get There</em> — a physical companion to the GEMS program. 40 quality pages, each with a workbook section and a QR code that points your agent directly to that quality's content.</p>
+        <div class="expansion-detail">Add this expansion and your agent gains a new layer: it knows your workbook page by page, guides each section by name, and lets you navigate any quality with a single scan.</div>
+      </div>
+
+      <div class="expansion-card">
+        <span class="expansion-badge badge-pro">Pro &amp; Max</span>
+        <h3>The Compass Deck</h3>
+        <p>60 physical cards — 36 Action, 24 Self-Care. At Pro and Max tiers, your agent already draws from the Compass digitally. Own the physical deck and draw cards in your hands.</p>
+        <div class="expansion-detail">Your agent interprets every pull in the context of your current quality challenge. Something changes when you hold the cards. The wisdom is the same; the experience is different.</div>
+      </div>
+
+      <div class="expansion-card">
+        <span class="expansion-badge badge-soon">Coming Soon</span>
+        <h3>More Expansions</h3>
+        <p>Journals, planners, courses, retreats, and tools — each one designed to plug directly into your GEMS program and give your agent more to work with.</p>
+        <div class="expansion-detail">Every expansion is built to integrate, not replace. The program stays at the center. The tools orbit it. Your agent connects everything.</div>
+      </div>
+
+    </div>
+  </section>
+
   <!-- TIERS -->
-  <section class="tiers">
+  <section class="tiers" style="background:var(--dark-card); border-top:1px solid var(--dark-border); border-bottom:1px solid var(--dark-border); max-width:100%; padding:100px 40px;">
+    <div style="max-width:1100px; margin:0 auto;">
     <div class="tiers-header">
-      <p class="section-label">Choose Your Tier</p>
-      <h2 class="section-title">Three paths. One destination.</h2>
-      <p class="section-sub">All tiers give your agent access to the GEMS knowledge base. Higher tiers unlock deeper coaching, music, the Voyager game, and physical product rewards.</p>
+      <p class="section-label">Choose Your Depth</p>
+      <h2 class="section-title">One program. Three levels of depth.</h2>
+      <p class="section-sub">All tiers run the same GEMS program — all 40 qualities, full coaching, Sound Sanctuary music. Higher tiers unlock deeper challenges, more tools, and the full Voyager game.</p>
     </div>
 
     <div class="tier-cards">
@@ -604,14 +723,14 @@
       <div class="tier-card">
         <p class="tier-name">Basic</p>
         <div class="tier-price">$4.99<span>/mo</span></div>
-        <p class="tier-tagline">The essential coaching curriculum. Your agent learns your chosen qualities and guides you through 3-day challenges.</p>
+        <p class="tier-tagline">The full program at its foundation. Every quality, every challenge, the Sound Sanctuary — ready to run from day one.</p>
         <hr class="tier-divider" />
         <ul class="tier-features">
           <li><strong>All 40 quality guides</strong> — full definitions, context, action steps</li>
           <li><strong>3-day challenges</strong> per quality</li>
-          <li><strong>Sound Sanctuary</strong> — instrumental &amp; soundscape, matched to your quality</li>
+          <li><strong>Sound Sanctuary</strong> — instrumental &amp; soundscape, quality-matched</li>
           <li>Suggested next quality path</li>
-          <li>QR code activation from the book</li>
+          <li>QR code activation (with the book expansion)</li>
           <li>Cancel anytime</li>
         </ul>
         <a href="#signup" class="btn btn-outline" onclick="document.getElementById('tier-select').value='basic'">Start Basic</a>
@@ -622,16 +741,16 @@
         <div class="tier-badge">Most Popular</div>
         <p class="tier-name">Pro</p>
         <div class="tier-price">$9.99<span>/mo</span></div>
-        <p class="tier-tagline">Full 7-day challenges with daily music, workbook guidance, resources, and aligned product recommendations.</p>
+        <p class="tier-tagline">The program at full depth. Seven days per quality, your workbook activated, Compass draws, and expanded music.</p>
         <hr class="tier-divider" />
         <ul class="tier-features">
           <li><em>Everything in Basic</em></li>
           <li><strong>7-day challenges</strong> per quality — full depth</li>
-          <li><strong>Expanded Sound Sanctuary</strong> — all 6 moods, songs &amp; affirmations added</li>
+          <li><strong>Expanded Sound Sanctuary</strong> — all 6 moods, songs &amp; affirmations</li>
           <li><strong>Compass card draws</strong> — 3-card spread (Past, Present, Future)</li>
           <li><strong>GEMS Workbook</strong> integration — guided daily logging</li>
           <li>Curated books, videos &amp; affirmations per quality</li>
-          <li>7-day calendar events (.ics) pushed to your calendar</li>
+          <li>7-day calendar events pushed to your calendar</li>
           <li>Cancel anytime</li>
         </ul>
         <a href="#signup" class="btn btn-gold" onclick="document.getElementById('tier-select').value='pro'">Start Pro</a>
@@ -641,13 +760,13 @@
       <div class="tier-card">
         <p class="tier-name">Max</p>
         <div class="tier-price">$19.99<span>/mo</span></div>
-        <p class="tier-tagline">The full Voyager experience. Quests, Compass Deck spreads, leveling system, physical product rewards, and the complete game layer.</p>
+        <p class="tier-tagline">The complete Voyager experience. Quests, the full game system, all of Sound Sanctuary, and the complete Compass deck.</p>
         <hr class="tier-divider" />
         <ul class="tier-features">
           <li><em>Everything in Pro</em></li>
           <li><strong>Full Sound Sanctuary</strong> — all 6 moods, all 8 formats, unlimited</li>
           <li><strong>Voyager Quest system</strong> — narrative arcs with milestones</li>
-          <li><strong>Compass Deck spreads</strong> — 1, 3, and 5-card readings</li>
+          <li><strong>Full Compass Deck</strong> — 1, 3, and 5-card spreads</li>
           <li><strong>XP + Coin leveling</strong> — 10 levels from Seeker to Legend</li>
           <li><strong>Physical product rewards</strong> redeemable with coins</li>
           <li>Navigator Workbook guidance (physical + digital)</li>
@@ -657,19 +776,20 @@
       </div>
 
     </div>
+    </div>
   </section>
 
   <!-- FOUNDATION TRIAL -->
   <section class="trial-section">
     <div class="trial-inner">
       <p class="section-label">Foundation Access</p>
-      <h2 class="section-title">Have a book code?</h2>
-      <p>Each copy of <em>Where to Start and How to Get There</em> distributed through the Give Energy Make Smiles Foundation includes a 30-day Max trial code. Enter it here to activate your full access — no card required during trial.</p>
+      <h2 class="section-title">Have a program code?</h2>
+      <p>Each copy of <em>Where to Start and How to Get There</em> distributed through the Give Energy Make Smiles Foundation includes a 30-day Max trial code. Enter it here to activate your full program — no card required during trial.</p>
       <div class="trial-form">
         <input type="text" class="trial-input" placeholder="GEMS-XXXX-XXXX" id="trial-code" maxlength="20" />
         <button class="btn btn-gold" style="white-space:nowrap; padding:14px 24px;" onclick="activateTrialCode()">Activate</button>
       </div>
-      <p class="trial-note">Trial codes are single-use and valid for 30 days. After your trial, continue at $19.99/mo or choose a lower tier.<br>Questions? <a href="mailto:hello@giveenergymakesmiles.com" style="color:var(--gold);">hello@giveenergymakesmiles.com</a></p>
+      <p class="trial-note">Codes are single-use and valid for 30 days. After your trial, continue at $19.99/mo or choose a lower tier.<br>Questions? <a href="mailto:hello@giveenergymakesmiles.com" style="color:var(--gold);">hello@giveenergymakesmiles.com</a></p>
     </div>
   </section>
 
@@ -682,22 +802,22 @@
       <div class="step">
         <div class="step-num">01</div>
         <h3>Subscribe</h3>
-        <p>Choose your tier, complete checkout. You'll receive an email with your GitHub access invitation and setup instructions.</p>
+        <p>Choose your depth, complete checkout. You'll receive an email with your GitHub access invitation and setup instructions.</p>
       </div>
       <div class="step">
         <div class="step-num">02</div>
         <h3>Connect your agent</h3>
-        <p>Accept the GitHub invitation. Then tell your AI agent (Claude, ChatGPT, Gemini, or any other) to read the GEMS repository. That's it.</p>
+        <p>Accept the GitHub invitation. Tell your AI agent — Claude, ChatGPT, Gemini, or any other — to read the GEMS program. That's the setup. Done.</p>
       </div>
       <div class="step">
         <div class="step-num">03</div>
-        <h3>Scan or choose a quality</h3>
-        <p>Scan a QR code from the book — or tell your agent which quality you want to work. The agent reads the content and your coaching session begins.</p>
+        <h3>Choose a quality</h3>
+        <p>Tell your agent which quality you want to work on, or let it recommend one based on where you are. Your coaching session begins immediately.</p>
       </div>
       <div class="step">
         <div class="step-num">04</div>
         <h3>Show up daily</h3>
-        <p>Check in with your agent every day. Music plays, challenges unfold, XP accumulates. Seven days at a time. Forty qualities over a lifetime.</p>
+        <p>Check in with your agent every day. Music plays, challenges unfold, the story builds. Seven days at a time. Forty qualities over a lifetime.</p>
       </div>
     </div>
   </section>
@@ -706,8 +826,8 @@
   <section class="signup-section" id="signup">
     <div class="signup-inner">
       <p class="section-label">Get Started</p>
-      <h2 class="section-title">Begin your journey.</h2>
-      <p>Subscribe below. You'll receive a GitHub collaboration invitation within 24 hours along with instructions to connect your AI agent to the GEMS system.</p>
+      <h2 class="section-title">Begin the program.</h2>
+      <p>Subscribe below. You'll receive a GitHub collaboration invitation within 24 hours along with instructions to connect your AI agent to GEMS.</p>
 
       <form id="signup-form" onsubmit="handleSignup(event)">
         <div class="form-group">
@@ -723,21 +843,18 @@
           <input type="text" class="form-input" id="github" placeholder="your-github-username" required />
         </div>
         <div class="form-group">
-          <label class="form-label" for="tier-select">Subscription Tier</label>
+          <label class="form-label" for="tier-select">Program Tier</label>
           <select class="form-select" id="tier-select" required>
-            <option value="" disabled selected>Select your tier</option>
+            <option value="" disabled selected>Select your depth</option>
             <option value="basic">Basic — $4.99/month</option>
             <option value="pro">Pro — $9.99/month</option>
             <option value="max">Max — $19.99/month</option>
           </select>
         </div>
 
-        <!-- Stripe payment placeholder -->
         <div class="form-group">
           <label class="form-label">Payment</label>
           <div style="background:var(--dark); border:1px solid var(--dark-border); border-radius:8px; padding:16px; color:var(--text-muted); font-size:0.85rem;">
-            <!-- STRIPE ELEMENT PLACEHOLDER -->
-            <!-- Replace this div with Stripe Elements card component -->
             <div id="stripe-card-element" style="padding:8px 0;">
               Stripe payment element loads here.<br>
               <small>Integrate: <code style="color:var(--gold-light);">stripe.elements().create('card')</code></small>
@@ -745,7 +862,7 @@
           </div>
         </div>
 
-        <button type="submit" class="btn btn-gold" style="margin-top:8px;">Complete Subscription →</button>
+        <button type="submit" class="btn btn-gold" style="margin-top:8px;">Start the Program →</button>
         <p class="stripe-note">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
           Secured by Stripe. Cancel anytime.
@@ -763,7 +880,7 @@
         <div class="instruction-num">1</div>
         <div class="instruction-content">
           <h4>Check your email</h4>
-          <p>Within 24 hours, you'll receive a GitHub collaboration invitation. Accept it — this grants your account access to the GEMS repository for your tier.</p>
+          <p>Within 24 hours, you'll receive a GitHub collaboration invitation. Accept it — this grants your account access to the GEMS program for your tier.</p>
         </div>
       </div>
 
@@ -771,7 +888,7 @@
         <div class="instruction-num">2</div>
         <div class="instruction-content">
           <h4>Create a free GitHub account (if you don't have one)</h4>
-          <p>Go to <a href="https://github.com" style="color:var(--gold);">github.com</a> → Sign up → confirm email. Your username is what you entered above. It takes about 2 minutes.</p>
+          <p>Go to <a href="https://github.com" style="color:var(--gold);">github.com</a> → Sign up → confirm email. Your username is what you entered above. Takes about 2 minutes.</p>
         </div>
       </div>
 
@@ -780,16 +897,16 @@
         <div class="instruction-content">
           <h4>Tell your AI agent to read GEMS</h4>
           <p>Open your AI agent (Claude, ChatGPT, Gemini, or any other) and say:</p>
-          <div class="code-block">Read the GEMS repository at github.com/Arcee11/gems-core and let's begin my first quality challenge.</div>
-          <p style="margin-top:8px;">For Pro/Max tiers, your agent will automatically have access to additional repos.</p>
+          <div class="code-block">Read the GEMS program at github.com/Arcee11/gems-core and let's begin my first quality challenge.</div>
+          <p style="margin-top:8px;">Pro and Max subscribers: your agent will automatically have access to the deeper repos.</p>
         </div>
       </div>
 
       <div class="instruction-step">
         <div class="instruction-num">4</div>
         <div class="instruction-content">
-          <h4>Scan your book QR code (if you have the book)</h4>
-          <p>Open the camera on any device, scan the QR code next to the quality you want to start, and your agent will navigate directly to that quality's content.</p>
+          <h4>Choose your first quality</h4>
+          <p>Tell your agent which quality calls to you — or ask it to recommend one based on where you are right now. If you have the book expansion, scan a QR code and your agent navigates directly there.</p>
         </div>
       </div>
 
@@ -797,7 +914,7 @@
         <div class="instruction-num">5</div>
         <div class="instruction-content">
           <h4>Your first session begins</h4>
-          <p>Your agent will read the GEMS content, introduce the quality, stream your opening music, and give you your first challenge. Show up again tomorrow. That's how the journey works.</p>
+          <p>Your agent reads the program, welcomes you into your quality, opens the Sound Sanctuary, and gives you your first challenge. Show up again tomorrow. That's how the program works.</p>
         </div>
       </div>
     </div>
@@ -813,7 +930,7 @@
       &nbsp;&bull;&nbsp;
       <a href="mailto:hello@giveenergymakesmiles.com">Contact</a>
     </p>
-    <p style="color:#555;">&copy; 2024 Give Energy Make Smiles. All rights reserved.<br>
+    <p style="color:#555;">&copy; 2025 Give Energy Make Smiles. All rights reserved.<br>
     Subscription management via Stripe. GitHub account required for access.</p>
   </footer>
 
@@ -821,12 +938,9 @@
     function activateTrialCode() {
       const code = document.getElementById('trial-code').value.trim().toUpperCase();
       if (!code || code.length < 10) {
-        alert('Please enter your full trial code (e.g. GEMS-XXXX-XXXX).');
+        alert('Please enter your full program code (e.g. GEMS-XXXX-XXXX).');
         return;
       }
-      // TODO: Connect to backend validation endpoint
-      // POST /api/validate-trial-code { code }
-      // On success: pre-select Max tier, show confirmation, skip payment
       alert('Code received: ' + code + '\n\nPlease scroll down and complete your signup below — your Max tier will be activated at no charge for 30 days.\n\n(Backend integration required to fully automate this step.)');
       document.getElementById('tier-select').value = 'max';
       document.getElementById('signup').scrollIntoView({ behavior: 'smooth' });
@@ -840,18 +954,9 @@
       const tier = document.getElementById('tier-select').value;
 
       if (!tier) {
-        alert('Please select a subscription tier.');
+        alert('Please select a program tier.');
         return;
       }
-
-      // TODO: Replace with actual Stripe checkout or Stripe Elements payment processing
-      // 1. Create Stripe PaymentIntent or Subscription on your backend
-      // 2. Confirm payment with Stripe.js
-      // 3. On success: POST to your backend to add GitHub collaborator
-      //    - github.com/Arcee11/gems-core (all tiers)
-      //    - github.com/Arcee11/gems-pro (pro + max)
-      //    - github.com/Arcee11/gems-max (max only)
-      // 4. Send confirmation email with GitHub invite instructions
 
       const tierPrices = { basic: '$4.99', pro: '$9.99', max: '$19.99' };
       alert(
@@ -864,7 +969,6 @@
       );
     }
 
-    // Highlight the tier card when selected via button clicks
     document.querySelectorAll('.tier-card .btn').forEach(btn => {
       btn.addEventListener('click', () => {
         document.querySelectorAll('.tier-card').forEach(c => c.style.opacity = '0.7');
